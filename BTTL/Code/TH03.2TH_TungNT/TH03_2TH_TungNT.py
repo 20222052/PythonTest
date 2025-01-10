@@ -25,29 +25,29 @@ p1.getting()
 # Tính và in chỉ số BMI
 print('Chỉ số BMI: ' + str(p1.bmi()))
 
-# Bài 15: slide 44- Đọc dữ liệu trong dãy số
+# # Bài 15: slide 44- Đọc dữ liệu trong dãy số
 
-def swap_max_min_and_save(input_list, output_file):
-    # Tìm chỉ số của phần tử lớn nhất và nhỏ nhất đầu tiên
-    max_index = input_list.index(max(input_list))
-    min_index = input_list.index(min(input_list))
+# def swap_max_min_and_save(input_list, output_file):
+#     # Tìm chỉ số của phần tử lớn nhất và nhỏ nhất đầu tiên
+#     max_index = input_list.index(max(input_list))
+#     min_index = input_list.index(min(input_list))
 
-    # Đổi chỗ hai phần tử
-    input_list[max_index], input_list[min_index] = input_list[min_index], input_list[max_index]
+#     # Đổi chỗ hai phần tử
+#     input_list[max_index], input_list[min_index] = input_list[min_index], input_list[max_index]
 
-    # Ghi dãy đã đổi chỗ vào file
-    with open(output_file, 'w') as file:
-        file.write(' '.join(map(str, input_list)))
+#     # Ghi dãy đã đổi chỗ vào file
+#     with open(output_file, 'w') as file:
+#         file.write(' '.join(map(str, input_list)))
 
-    print(f"Dãy mới đã được lưu vào file: {output_file}")
+#     print(f"Dãy mới đã được lưu vào file: {output_file}")
 
 
-# Danh sách đầu vào
-input_list = [3, 5, 9, 2, 7, 9, 1, 8]
+# # Danh sách đầu vào
+# input_list = [3, 5, 9, 2, 7, 9, 1, 8]
 
-# Đường dẫn tới file đầu ra
-output_file = "dayso2_bai17.txt"
+# # Đường dẫn tới file đầu ra
+# output_file = "dayso2_bai17.txt"
 
-# Thực hiện đổi chỗ và lưu kết quả
-swap_max_min_and_save(input_list, output_file)
+# # Thực hiện đổi chỗ và lưu kết quả
+# swap_max_min_and_save(input_list, output_file)
 
