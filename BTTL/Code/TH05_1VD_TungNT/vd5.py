@@ -1,0 +1,12 @@
+import numpy as np
+vector_a = np.array([5,7,2,9,10,15,2,9,2,17,28,16],dtype=np.int16)
+print(vector_a)
+print(' phần từ của vector:' , vector_a.size)
+matrix_a = vector_a.reshape((3,4))
+print('Reshape ve matrix: 3 x 4')
+print(matrix_a)
+print('So phan tu cua matrix_a:', matrix_a.size)
+print('Reshape vè matrix: 2 x 6')
+matrix_b = vector_a.reshape((2,6))
+print(matrix_b)
+print('Số phần tử của matrix_b:', matrix_b.size)

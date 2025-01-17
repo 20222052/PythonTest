@@ -1,0 +1,11 @@
+import numpy as np
+x = np.array([17, 2, 11, 1, 9, 15, 1, 3, 8, 1, 12, 13, 5])
+t1 = np.where(x == 1)
+print(t1)
+print('1. Số phần tử thỏa mãn điều kiện = 1: ', t1[0].size)
+t2 = np.where(x > 10)
+print(t2)
+print('2. Số phần tử thỏa mãn điều kiện > 10: ', t2[0].size)
+t3 = np.where((x >= 5) & (x <= 10))
+print(t3)
+print('3. Số phần tử thỏa mãn điều kiện [5,10]: ', t3[0].size)
