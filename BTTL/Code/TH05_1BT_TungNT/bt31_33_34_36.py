@@ -2,7 +2,7 @@
 import random
 
 # Đường dẫn file
-file_path = "./BTTL/Code/TH05_1BT_TungNT/Data_BMI.txt"
+file_path = "TH05_1BT_TungNT\Data_BMI.txt"
 
 v_height = []
 v_weight = []
