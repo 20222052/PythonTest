@@ -1,13 +1,12 @@
 import os
 
 # Thư mục để tạo các file
-directory = "BTTL\Code\TH02BT_TungNT"
+directory = "BTTL\Code\TH06BT_TungNT"
 
 # Danh sách tên file
 file_names = [
-    "bt6.py", "bt7.py", "bt8.py",
-    "bt9.py", "bt10.py", "bt11.py",
-    "bt14.py", "bt13.py", "bt12.py"
+    "bt4_1.py", "bt5_1.py", "bt5_2.py",
+    "bt6_1.py", "bt4_2.py"
     ]
 
 # Tạo thư mục nếu chưa tồn tại
