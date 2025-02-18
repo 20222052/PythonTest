@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sửa sản phẩm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='edit.css') }}">
+</head>
+<body>
+
+<header>Sửa sản phẩm</header>
+
+<div class="container">
+    <h2>Chỉnh sửa thông tin sản phẩm</h2>
+
+    <form method="POST">
+        <label for="name">Tên sản phẩm:</label>
+        <input type="text" id="name" name="name" value="{{ product.name }}" required>
+
+        <label for="price">Giá:</label>
+        <input type="number" id="price" name="price" value="{{ product.price }}" required>
+
+        <label for="description">Mô tả:</label>
+        <textarea id="description" name="description" required>{{ product.description }}</textarea>
+
+        <label for="image">Ảnh sản phẩm:</label>
+        <input type="text" id="image" name="image" value="{{ product.image }}" required>
+
+        <label for="category_id">Danh mục:</label>
+        <select id="category_id" name="category_id" required>
+            {% for category in categories %}
+                <option value="{{ category.id }}" {% if category.id == product.category_id %}selected{% endif %}>
+                    {{ category.name }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Lưu thay đổi</button>
+    </form>
+</div>
+
+</body>
+</html>

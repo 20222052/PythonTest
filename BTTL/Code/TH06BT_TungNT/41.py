@@ -16,6 +16,6 @@ docs = data.get("response", {}).get("docs", [])
 df = pd.DataFrame(docs)
 
 # Lưu vào file CSV
-df.to_csv("D:\\PHYTHON\\7.2\\bt\Paper.csv", index=False, encoding="utf-8")
+df.to_csv("./TH06BT_TungNT/Paper.csv", index=False, encoding="utf-8")
 
 print("Dữ liệu đã được lưu vào Paper.csv")

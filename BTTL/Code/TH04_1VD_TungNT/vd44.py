@@ -4,14 +4,24 @@ import numpy as np
 path = 'Diem_2A.txt'
 
 try:
-    # Đọc dữ liệu từ tệp, bỏ qua dòng tiêu đề
-    diem_2a = np.loadtxt(path, delimiter=',', dtype=np.int_, skiprows=1, usecols=(1,))
-    a = diem_2a[1,:15]
-    print('mang a ban dau: \n', a)
-    print('so phan tu trong mang a:', a.size)
-    print('mang a da sap xep: \n', np.sort(a,))
-    print('gia tri trung binhf:', np.mean(a))
-    print('gia tri trung vi:', np.median(a))
+    # Đọc nội dung file
+    with open(path, 'r', encoding='utf-8') as f:
+        data = f.read().strip().replace('\n', '').split(',')
+    
+    # Loại bỏ khoảng trắng, chuyển thành số nguyên
+    diem_2a = np.array([int(x.strip()) for x in data if x.strip()], dtype=np.int_)
+
+    # Kiểm tra dữ liệu
+    print('Dữ liệu đọc được:\n', diem_2a)
+    
+    # Lấy 15 phần tử đầu tiên nếu có đủ dữ liệu
+    a = diem_2a[:15]
+    
+    print('Mảng a ban đầu:\n', a)
+    print('Số phần tử trong mảng a:', a.size)
+    print('Mảng a đã sắp xếp:\n', np.sort(a))
+    print('Giá trị trung bình:', np.mean(a))
+    print('Giá trị trung vị:', np.median(a))
 
 except FileNotFoundError:
     print(f"Không tìm thấy tệp tin: {path}")

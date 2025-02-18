@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm sản phẩm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>Thêm sản phẩm mới</header>
+
+<div class="container">
+    <!-- Nút sửa -->
+    <a href="{{ url_for('index') }}">
+        <button>Trở Lại</button>
+    </a>
+    <h2>Thông tin sản phẩm</h2>
+    
+    <form method="POST">
+        <label for="name">Tên sản phẩm:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="price">Giá:</label>
+        <input type="number" id="price" name="price" step="0.01" required>
+        
+        <label for="description">Mô tả:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+        
+        <label for="image">Hình ảnh (URL):</label>
+        <input type="text" id="image" name="image">
+        
+        <label for="category_id">Chọn thể loại:</label>
+        <select id="category_id" name="category_id" required>
+            {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+        
+        <button type="submit">Thêm sản phẩm</button>
+    </form>
+</div>
+
+</body>
+</html>

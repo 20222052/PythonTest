@@ -18,6 +18,7 @@ class Ui_MainWindow(object):
         self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(170, 220, 93, 28))
         self.pushButton.setObjectName("pushButton")
+        self.pushButton.clicked.connect(self.click)
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
         self.label.setGeometry(QtCore.QRect(210, 190, 55, 16))
         self.label.setObjectName("label")
@@ -35,7 +36,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
+    def click(self):
+        print(self.plainTextEdit.toPlainText())
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))

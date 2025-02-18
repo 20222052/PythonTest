@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt hàng thành công</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>Thanh toán thành công</header>
+
+<div class="container">
+    <h2>Cảm ơn {{ name }}!</h2>
+    <p>Bạn đã đặt hàng thành công sản phẩm <b>{{ product.name }}</b>.</p>
+    <p>Chúng tôi sẽ giao hàng đến địa chỉ của bạn sớm nhất.</p>
+    <a href="{{ url_for('index') }}">
+        <button>Quay lại trang chủ</button>
+    </a>
+</div>
+
+</body>
+</html>

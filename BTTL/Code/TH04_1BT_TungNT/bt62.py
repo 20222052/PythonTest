@@ -1,14 +1,12 @@
 import numpy as np
 
-# Đọc dữ liệu từ file và lưu vào numpy array
-data = np.loadtxt('./BTTL/Code/TH04_1BT_TungNT/temp.txt')
+# Đọc dữ liệu từ file và bỏ qua dòng đầu tiên chứa tên thành phố
+data = np.loadtxt('./temp.txt', delimiter=',', skiprows=1)
 
 # Yêu cầu 2: Tính Max, Min, và Nhiệt độ trung bình của cả 6 thành phố
 max_temp_all = np.max(data)
 min_temp_all = np.min(data)
 mean_temp_all = np.mean(data)
-
-print(data)
 
 print("Yêu cầu 2:")
 print(f"Nhiệt độ cao nhất (Max) của cả 6 thành phố: {max_temp_all:.2f}")

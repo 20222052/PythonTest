@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ Hàng</title>
+</head>
+<body>
+    <h1>Giỏ Hàng</h1>
+    <ul>
+        {% for item in cart_items %}
+        <li>Sản phẩm ID: {{ item.product_id }} - Số lượng: {{ item.quantity }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Quay lại</a>
+</body>
+</html>

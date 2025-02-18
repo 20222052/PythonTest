@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Đọc dữ liệu từ file Diamonds.txt vào mảng numpy
-data_diamond = np.loadtxt('./BTTL/Code/TH04_1BT_TungNT/data.txt')
+data_diamond = np.loadtxt('./data.txt')
 # Thông tin về mảng data_diamond
 print(data_diamond)
 print(f"Kích thước biến data_diamond: {data_diamond.shape}")

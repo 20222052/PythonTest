@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sản phẩm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    Danh sách sản phẩm
+    <nav>
+        <a href="{{ url_for('index') }}">
+            <button>Trang chủ</button>
+        </a>
+        <a href="{{ url_for('categories') }}">
+            <button>Danh Mục</button>
+        </a>
+        {% if 'user_id' in session %}
+        <a href="{{ url_for('orders') }}">
+            <button>Đơn hàng</button>
+        </a>
+            <!-- Nếu người dùng đã đăng nhập, hiển thị nút đăng xuất -->
+            <a href="{{ url_for('logout') }}">
+                <button>Đăng xuất</button>
+            </a>
+        {% else %}
+            <!-- Nếu người dùng chưa đăng nhập, có thể hiển thị nút đăng nhập -->
+            <a href="{{ url_for('login') }}">
+                <button>Đăng nhập</button>
+            </a>
+        {% endif %}
+    </nav>
+</header>
+
+<div class="container">
+    
+    <h2>Sản phẩm</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Hình ảnh</th>
+            <th>Thao tác</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }} VNĐ</td>
+            <td><img src="{{ product.image }}" alt="Hình ảnh" width="50"></td>
+            <td>
+                <!-- Nút Xem chi tiết -->
+                <a href="{{ url_for('product_detail', product_id=product.id) }}">
+                    <button>Xem chi tiết</button>
+                </a>
+                <a href="{{ url_for('checkout', product_id=product.id) }}">
+                    <button>Mua</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</div>
+
+</body>
+</html>

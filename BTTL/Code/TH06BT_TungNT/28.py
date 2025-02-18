@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Đọc toàn bộ file Excel và lấy danh sách các sheet
-file_path = r"D:\PHYTHON\7.2\bt\excel_Data_Movies.xls"  # Đường dẫn chính xác
+file_path = r"./TH06BT_TungNT/excel_Data_Movies.xls"  # Đường dẫn chính xác
 sheets = pd.read_excel(file_path, sheet_name=None)  # Đọc tất cả sheet
 
 # Duyệt qua từng sheet và hiển thị dữ liệu

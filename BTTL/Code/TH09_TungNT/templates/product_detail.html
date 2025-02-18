@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f2;
+            color: #d63384;
+            text-align: center;
+        }
+        header {
+            background-color: #ff66b2;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            background: white;
+            width: 60%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #e60073;
+        }
+    </style>
+</head>
+<body>
+
+<header>Chi tiết sản phẩm</header>
+
+<div class="container">
+    <h2>{{ product.name }}</h2>
+    <p><strong>Giá:</strong> {{ product.price }} VNĐ</p>
+    <p><strong>Mô tả:</strong> {{ product.description }}</p>
+    <img src="{{ product.image }}" alt="Hình ảnh sản phẩm" width="300">
+
+    <!-- Nút quay lại -->
+    <a href="{{ url_for('index') }}">
+        <button>Quay lại</button>
+    </a>
+    <!-- Nút mua hàng -->
+    <a href="{{ url_for('checkout', product_id=product.id) }}">
+        <button>Mua</button>
+    </a>
+</div>
+
+</body>
+</html>
+

@@ -2,13 +2,13 @@ import numpy as np
 
 # Đọc dữ liệu từ file Temp.txt
 try:
-    data_numpy = np.loadtxt('./temp.txt', delimiter=',', skiprows=1)  # Bỏ qua dòng chứa tên thành phố
+    data_numpy = np.loadtxt('Temp.txt', delimiter=',')  # Đọc dữ liệu với dấu phẩy làm dấu phân cách
 
     # Lấy thông tin về kích thước, số chiều, kiểu dữ liệu và số phần tử
-    shape = data_numpy.shape  # Kích thước của mảng
-    ndim = data_numpy.ndim    # Số chiều của mảng
-    dtype = data_numpy.dtype  # Kiểu dữ liệu của mảng
-    size = data_numpy.size    # Số phần tử trong mảng
+    shape = data_numpy.shape          # Kích thước của mảng
+    ndim = data_numpy.ndim            # Số chiều của mảng
+    dtype = data_numpy.dtype          # Kiểu dữ liệu của mảng
+    size = data_numpy.size            # Số phần tử trong mảng
 
     # In các thông tin
     print(f"Kích thước của data_numpy: {shape}")

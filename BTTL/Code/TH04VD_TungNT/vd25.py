@@ -2,14 +2,14 @@ import numpy as np
 import os  # Để kiểm tra sự tồn tại của tệp
 
 # Đường dẫn tới tệp
-path = 'anh.txt'
+path = './Diem_2A.txt'
 
 # Kiểm tra xem tệp có tồn tại hay không
 if os.path.exists(path):
     try:
-        # Đọc dữ liệu từ tệp
-        diem_2a = np.loadtxt(path, delimiter=',', dtype=np.int32)
-        
+        # Đọc dữ liệu từ tệp, thay giá trị trống bằng 0
+        diem_2a = np.genfromtxt(path, delimiter=',', dtype=np.int32, filling_values=0)
+
         # In thông tin về mảng
         print("Dữ liệu trong mảng diem_2a:")
         print(diem_2a)

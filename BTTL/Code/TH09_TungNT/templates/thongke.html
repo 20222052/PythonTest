@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thống kê Đơn Hàng</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f4f4f4;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background: #3498db;
+            color: white;
+        }
+        tr:hover {
+            background: #f1f1f1;
+        }
+        .order-details {
+            display: none;
+            text-align: left;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            color: white;
+        }
+        .btn-primary {
+            background: #3498db;
+        }
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+        .btn-export {
+            background: #2ecc71;
+        }
+        .btn-export:hover {
+            background: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Thống kê Đơn Hàng</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">
+                <button class="btn-primary">Trang chủ</button>
+            </a>
+            <a href="{{ url_for('categories') }}">
+                <button class="btn-primary">Danh Mục</button>
+            </a>
+            <a href="{{ url_for('orders') }}">
+                <button class="btn-primary">Đơn hàng</button>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Nút Xuất Excel -->
+    <button class="btn-export" onclick="exportToExcel()">📊 Xuất Excel</button>
+
+    <table id="orderTable">
+        <thead>
+            <tr>
+                <th>ID Đơn Hàng</th>
+                <th>Người Dùng</th>
+                <th>Tổng Tiền</th>
+                <th>Số Lượng</th>
+                <th>Chi Tiết</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr onclick="toggleDetails('order-{{ order.id }}')">
+                <td>{{ order.id }}</td>
+                <td>{{ order.user_id }}</td>
+                <td>{{ order.total }} VND</td>
+                <td>{{ order.quantity }}</td>
+                <td><button class="btn-primary">Chi tiết</button></td>
+            </tr>
+            <tr id="order-{{ order.id }}" class="order-details">
+                <td colspan="5">
+                    <h3>Chi tiết đơn hàng:</h3>
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Giá</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in order.items %}
+                            <tr>
+                                <td>{{ item.product.name }}</td>
+                                <td>{{ item.quantity }}</td>
+                                <td>{{ item.price }} VND</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/">Quay lại</a>
+
+    <script>
+        // Hiển thị hoặc ẩn chi tiết đơn hàng
+        function toggleDetails(id) {
+            var row = document.getElementById(id);
+            row.style.display = (row.style.display === "table-row") ? "none" : "table-row";
+        }
+
+        // Xuất bảng ra file Excel
+        function exportToExcel() {
+            let table = document.getElementById("orderTable");
+            let wb = XLSX.utils.table_to_book(table, { sheet: "Thong_Ke_Don_Hang" });
+            XLSX.writeFile(wb, "Thong_Ke_Don_Hang.xlsx");
+        }
+    </script>
+
+</body>
+</html>
